@@ -9,10 +9,19 @@ const createGrid = function(numSquares){
     gridContainer.style.flexDirection = "column";
 
     //Hover effect
+    //Random RGB
+    const randomRGBRed = Math.random() * 255
+    const randomRGBGreen = Math.random() * 255
+    const randomRGBBlue = Math.random() * 255
+
     gridContainer.addEventListener("mouseover", (e)=>{
-        let hoverTarget = e.target 
-        if (hoverTarget.class === "square") {
-            hoverTarget.style.backgroundColor = "red"}                                                  
+        let hoverTarget = e.target;
+        if (hoverTarget.className === "square") {
+            // hoverTarget.style.backgroundColor = 
+            // `color:rgb(${randomRGBRed}, ${randomRGBGreen}, ${randomRGBBlue})`
+            hoverTarget.style.backgroundColor = 
+            `red`
+        }                                                  
     }
     )
 
@@ -34,9 +43,9 @@ const createGrid = function(numSquares){
         gridSquare.style.flex = "1"
         gridSquare.classList.add("square")
 
-        gridSquare.addEventListener("mouseover", function(){
-            this.style.backgroundColor = "red"
-        })
+        // gridSquare.addEventListener("mouseover", function(){
+        //     this.style.backgroundColor = "red"
+        // })
 
         gridRow.appendChild(gridSquare)
         }
