@@ -10,17 +10,18 @@ const createGrid = function(numSquares){
 
     //Hover effect
     //Random RGB
-    const randomRGBRed = Math.random() * 255
-    const randomRGBGreen = Math.random() * 255
-    const randomRGBBlue = Math.random() * 255
 
     gridContainer.addEventListener("mouseover", (e)=>{
         let hoverTarget = e.target;
         if (hoverTarget.className === "square") {
-            // hoverTarget.style.backgroundColor = 
-            // `color:rgb(${randomRGBRed}, ${randomRGBGreen}, ${randomRGBBlue})`
+            const randomRGBRed = Math.random() * 255
+            const randomRGBGreen = Math.random() * 255
+            const randomRGBBlue = Math.random() * 255
+        
             hoverTarget.style.backgroundColor = 
-            `red`
+            `rgb(${randomRGBRed}, ${randomRGBGreen}, ${randomRGBBlue})`
+            // hoverTarget.style.backgroundColor = 
+            // `red`
         }                                                  
     }
     )
