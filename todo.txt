@@ -1,3 +1,7 @@
 Create square divs dynamicallyDONE
 Hover effectDONE
-Button for # of squares
+Button for # of squaresDONE
+
+Extra credit
+-randomize RGB
+-progressive darkening
