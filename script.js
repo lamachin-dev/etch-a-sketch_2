@@ -1,6 +1,9 @@
 
 const createGrid = function(){
     const gridContainer = document.createElement("div");
+    gridContainer.style.width = "100px";
+    gridContainer.style.height = "100px";
+    gridContainer.style.border = "3px red solid";
     //Start with 4x4
     let numberOfSquares = 4
 
@@ -10,9 +13,16 @@ const createGrid = function(){
     
     gridRow.style.border = "1px solid black";
     gridRow.style.backgroundColor = "orange";
-    gridRow.style.height = "10px";
+    gridRow.style.minHeight = "10px";
     gridRow.style.display = "flex";
     //squares that go into the row
+        //TODO:append squares to row
+            const gridSquare = document.createElement("div");
+            gridSquare.style.border = "1px solid black";
+            
+
+
+
     gridContainer.appendChild(gridRow)
   }  
 document.body.appendChild(gridContainer)
