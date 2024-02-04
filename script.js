@@ -4,6 +4,8 @@ const createGrid = function(){
     gridContainer.style.width = "100px";
     gridContainer.style.height = "100px";
     gridContainer.style.border = "3px red solid";
+    gridContainer.style.display = "flex";
+    gridContainer.style.flexDirection = "column";
     //Start with 4x4
     let numberOfSquares = 4
 
@@ -16,6 +18,7 @@ const createGrid = function(){
     gridRow.style.backgroundColor = "orange";
     gridRow.style.minHeight = "10px";
     gridRow.style.display = "flex";
+    gridRow.style.flex = 1
     //squares that go into the row
     //TODO:append squares to row
     for(i=0; i < numberOfSquares; i++){
