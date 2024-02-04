@@ -49,12 +49,15 @@ document.body.appendChild(gridContainer)
 createGrid(10)
 
 const resetGrid = function(){
-    const numSquares = prompt("Enter # of squares per side")
+    let numSquares = prompt("Enter # of squares per side 1-100")
+    
+    // if (isNaN(numSquares)) numSquares = prompt("Please enter valid number");
+    while (isNaN(numSquares) || numSquares > 100) {
+        numSquares = prompt("Please enter valid number 1-100")
+    }
     const gridContainer = document.querySelector(".grid")
 
     gridContainer.remove()
-    // document.body.removeChild(child)
     createGrid(numSquares)
-    //TODO: add validation
 }
 
