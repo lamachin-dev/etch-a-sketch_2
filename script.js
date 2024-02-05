@@ -27,10 +27,13 @@ const createGrid = function(numSquares){
     gridRow.style.display = "flex";
     gridRow.style.flex = 1
     //squares that go into the row
+
     for(i=0; i < numberOfSquares; i++){
         const gridSquare = document.createElement("div");
         gridSquare.style.border = "1px solid blue";
         gridSquare.style.flex = "1"
+        gridSquare.style.backgroundColor = "hsl(0,0%,50%)";
+
         gridSquare.classList.add("square")
 
         // gridSquare.addEventListener("mouseover", function(){
@@ -51,28 +54,52 @@ document.body.appendChild(gridContainer)
 
 createGrid(10)
 
-function attachEventListener(){
-
-}
+//function to convert from RGB to HSL
+const RGBToHSL = (r, g, b) => {
+    r /= 255;
+    g /= 255;
+    b /= 255;
+    const l = Math.max(r, g, b);
+    const s = l - Math.min(r, g, b);
+    const h = s
+      ? l === r
+        ? (g - b) / s
+        : l === g
+        ? 2 + (b - r) / s
+        : 4 + (r - g) / s
+      : 0;
+    return [
+      60 * h < 0 ? 60 * h + 360 : 60 * h,
+      100 * (s ? (l <= 0.5 ? s / (2 * l - s) : s / (2 - (2 * l - s))) : 0),
+      (100 * (2 * l - s)) / 2,
+    ];
+  };
 
 function changeColorEventHandler(e){
-    console.log(e);
     let hoverTarget = e.target;
+    
     if (hoverTarget.className === "square") {
         
         //Hover effect
-        //Random RGB
-        const color = gridContainer.getAttribute("style.backgroundColor")
-        // console.log(color);
-  
 
-        //Read target square's HSL values
-        // let currentHSL = hoverTarget.style.backgroundColor
-        let currentHSL = hoverTarget.getAttribute("style")
+        //Read target square's RGB values
+        let currentRGB = hoverTarget.style.backgroundColor.slice(4,-1)
+        //Convert from RGB to HSL
+        currentHSL = RGBToHSL(...currentRGB.split(","))
+        //Get current Lightness value
+        const currentLightness = currentHSL[2]
+        
+        //Randomize HSL
+        let randomHue = Math.random() * 360
+        let randomSaturation = Math.random () * 100
+        let randomLightness = Math.random() * (currentLightness - currentLightness / 10)        
 
-        console.log(currentHSL);
-        let randomH = Math.random()
-        //Add 10% more color every time the mouseover event occurs  
+        //Apply style
+        hoverTarget.style.backgroundColor = `hsl(${randomHue}, ${randomSaturation}%, ${randomLightness}%)`
+        console.log(`${randomHue},${randomSaturation}, ${randomLightness}`);
+
+        //Display Lightness value
+        // hoverTarget.textContent = randomLightness
     } 
 }
 
