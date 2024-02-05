@@ -41,6 +41,9 @@ const createGrid = function(numSquares){
         }
 
     gridContainer.appendChild(gridRow)
+    gridContainer.addEventListener("mouseover", changeColorEventHandler)
+
+    // attachEventListener()
   }  
 document.body.appendChild(gridContainer)
 
@@ -48,30 +51,29 @@ document.body.appendChild(gridContainer)
 
 createGrid(10)
 
-const changeGridEventHandler = function(){
+function attachEventListener(){
+
+}
+
+function changeColorEventHandler(e){
+    console.log(e);
+    let hoverTarget = e.target;
+    if (hoverTarget.className === "square") {
+        
         //Hover effect
-    //Random RGB
-FIXME:gridContainer.style.backgroundColor
-const color = gridContainer.getAttribute("style.backgroundColor")
-// console.log(color);
-    gridContainer.addEventListener("mouseover", (e)=>{
-        let hoverTarget = e.target;
-        if (hoverTarget.className === "square") {
-            
-            //Read target square's HSL values
-            // let currentHSL = hoverTarget.style.backgroundColor
-            let currentHSL = hoverTarget.getAttribute("style")
+        //Random RGB
+        const color = gridContainer.getAttribute("style.backgroundColor")
+        // console.log(color);
+  
 
-            console.log(currentHSL);
-            let randomH = Math.random()
-            //Add 10% more color every time the mouseover event occurs     
-        }                                                      
-    }
-    )
-};
+        //Read target square's HSL values
+        // let currentHSL = hoverTarget.style.backgroundColor
+        let currentHSL = hoverTarget.getAttribute("style")
 
-const attachEventListener = function(){
-
+        console.log(currentHSL);
+        let randomH = Math.random()
+        //Add 10% more color every time the mouseover event occurs  
+    } 
 }
 
 const resetGrid = function(){
@@ -86,4 +88,5 @@ const resetGrid = function(){
     gridContainer.remove()
     createGrid(numSquares)
 }
+
 
