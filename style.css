@@ -1,3 +1,7 @@
 body{
     background-color: grey;
 }
+
+.rand{
+    background-color: hsl(0, 100%, 50%);
+}
