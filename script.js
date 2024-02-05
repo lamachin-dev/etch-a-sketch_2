@@ -7,13 +7,7 @@ const createGrid = function(numSquares){
     gridContainer.style.border = "3px red solid";
     gridContainer.style.display = "flex";
     gridContainer.style.flexDirection = "column";
-//TODO:
-//TODO:
-//TODO:
-//TODO:FIGURE out how to do RANDOMIZATIONand DARKENING at the same time
-//1. without counting (use HSL and have the formulas feed into themselves) 
-//2. with counting # of events fired
-//TODO:
+
 
     //Start with 4x4
     let numberOfSquares = numSquares
