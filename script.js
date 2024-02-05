@@ -15,34 +15,6 @@ const createGrid = function(numSquares){
 //2. with counting # of events fired
 //TODO:
 
-    //Hover effect
-    //Random RGB
-FIXME:gridContainer.style.backgroundColor
-    gridContainer.addEventListener("mouseover", (e)=>{
-        let hoverTarget = e.target;
-        if (hoverTarget.className === "square") {
-            
-            //Read target square's HSL values
-            hoverTarget.style
-
-            let randomH = Math.random()
-
-        
-            //Add 10% more color every time the mouseover event occurs
-            randomRGBRed += (255/10 * (touchCount + 1))
-            randomRGBGreen += (255/10 * (touchCount + 1))
-            randomRGBBlue += (255/10 * (touchCount + 1))
-        
-        
-            hoverTarget.style.backgroundColor = 
-            `rgb(${randomRGBRed}, ${randomRGBGreen}, ${randomRGBBlue})`
-            
-            touchcount++;
-        }                                                  
-        
-    }
-    )
-
     //Start with 4x4
     let numberOfSquares = numSquares
 
@@ -73,7 +45,34 @@ FIXME:gridContainer.style.backgroundColor
 document.body.appendChild(gridContainer)
 
 }   
+
 createGrid(10)
+
+const changeGridEventHandler = function(){
+        //Hover effect
+    //Random RGB
+FIXME:gridContainer.style.backgroundColor
+const color = gridContainer.getAttribute("style.backgroundColor")
+// console.log(color);
+    gridContainer.addEventListener("mouseover", (e)=>{
+        let hoverTarget = e.target;
+        if (hoverTarget.className === "square") {
+            
+            //Read target square's HSL values
+            // let currentHSL = hoverTarget.style.backgroundColor
+            let currentHSL = hoverTarget.getAttribute("style")
+
+            console.log(currentHSL);
+            let randomH = Math.random()
+            //Add 10% more color every time the mouseover event occurs     
+        }                                                      
+    }
+    )
+};
+
+const attachEventListener = function(){
+
+}
 
 const resetGrid = function(){
     let numSquares = prompt("Enter # of squares per side 1-100")
